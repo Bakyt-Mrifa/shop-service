@@ -1,6 +1,6 @@
 package kg.megacom.shopservice.models.entity;
 
-import kg.megacom.shopservice.enums.Role;
+import kg.megacom.shopservice.models.enums.Role;
 import lombok.Data;
 
 import javax.persistence.*;

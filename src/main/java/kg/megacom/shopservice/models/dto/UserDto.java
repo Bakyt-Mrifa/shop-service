@@ -1,6 +1,6 @@
 package kg.megacom.shopservice.models.dto;
 
-import kg.megacom.shopservice.enums.Role;
+import kg.megacom.shopservice.models.enums.Role;
 import lombok.Data;
 
 @Data

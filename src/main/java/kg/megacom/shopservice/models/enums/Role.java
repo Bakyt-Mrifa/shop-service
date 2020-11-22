@@ -1,4 +1,4 @@
-package kg.megacom.shopservice.enums;
+package kg.megacom.shopservice.models.enums;
 
 public enum  Role {
 

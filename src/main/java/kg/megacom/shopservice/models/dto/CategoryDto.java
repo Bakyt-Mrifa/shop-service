@@ -7,5 +7,5 @@ public class CategoryDto {
 
     private Long id;
     private String name;
-    private Object parent;
+    private String parent;
 }

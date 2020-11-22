@@ -13,7 +13,7 @@ public class GoodsDto {
     private Date expirationDate;
     private int minAmount;
     private int maxAmount;
-    private Object qrCode;
+    private String qrCode;
     private CategoryDto category;
     private ProviderDto provider;
 }

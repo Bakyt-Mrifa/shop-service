@@ -19,11 +19,11 @@ public class Goods {
     private Date expirationDate;
     private int minAmount;
     private int maxAmount;
-    private Object qrCode;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "cotegory_id")
+    private String qrCode;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
     private Category category;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "provider_id")
     private Provider provider;
 }

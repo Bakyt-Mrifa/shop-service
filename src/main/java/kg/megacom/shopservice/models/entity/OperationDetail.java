@@ -16,7 +16,7 @@ public class OperationDetail {
     @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "goods_id")
     private Goods goods;
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cost_id")
     private Cost cost;
     private int amount;
