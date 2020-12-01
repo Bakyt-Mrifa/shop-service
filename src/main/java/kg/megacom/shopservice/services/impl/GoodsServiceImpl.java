@@ -4,6 +4,7 @@ import kg.megacom.shopservice.database.GoodsRepo;
 import kg.megacom.shopservice.mappers.GoodsMapper;
 import kg.megacom.shopservice.models.dto.GoodsDto;
 import kg.megacom.shopservice.models.entity.Goods;
+import kg.megacom.shopservice.models.responses.Response;
 import kg.megacom.shopservice.services.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,11 +17,47 @@ public class GoodsServiceImpl implements GoodsService {
 
     //Метод для сохранения товара
     @Override
-    public GoodsDto saveGoods(GoodsDto goodsDto) {
-        System.out.println(goodsDto.getAddDate()+", "+goodsDto.getMaxAmount()+" - test impl save method before saving");
+    public Response saveGoods(GoodsDto goodsDto) {
+             System.out.println(goodsDto+" - test impl save method before saving");
         Goods goods = goodsRepo.save(GoodsMapper.INSTANCE.toGoods(goodsDto));
+        Response response=Response.success();
+        System.out.println(goods+" test impl save method after saving");
+        response.setObject(GoodsMapper.INSTANCE.toGoodsDto(goods));
+        return response ;
+    }
 
-        System.out.println(goods.getAddDate()+", "+goods.getMaxAmount()+" - test impl save method after saving");
-        return GoodsMapper.INSTANCE.toGoodsDto(goods);
+    @Override
+    public Response updateGoods(GoodsDto goodsDto) {
+        Goods goods=goodsRepo.findById(goodsDto.getId()).orElse(null);
+        Response response ;
+
+        if (goods==null){
+            response=Response.error();
+            return response;
+        }
+        Long tempId = goods.getId();
+        goods=GoodsMapper.INSTANCE.toGoods(goodsDto);
+        goods.setId(tempId);
+        goodsRepo.save(goods);
+        response=Response.success();
+        response.setObject(GoodsMapper.INSTANCE.toGoodsDto(goods));
+        return response;
+    }
+
+    @Override
+    public Response deleteGoods(GoodsDto goodsDto) {
+        Goods goods=goodsRepo.findById(goodsDto.getId()).orElse(null);
+        Response response ;
+
+        if (goods==null){
+            response=Response.error();
+            return response;
+        }
+        Long tempId = goods.getId();
+        goods.setActive(false);
+        goodsRepo.save(goods);
+        response=Response.success();
+        response.setObject(GoodsMapper.INSTANCE.toGoodsDto(goods));
+        return response;
     }
 }

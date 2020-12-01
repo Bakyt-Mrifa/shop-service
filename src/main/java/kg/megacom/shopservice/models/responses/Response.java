@@ -10,10 +10,18 @@ public class Response {
     private String message;
     private Object object;
 
-    public static Response getResponse(){
+    public static Response success(){
         return Response.builder()
                 .status(1)
                 .message("Успешно")
+                .build();
+    }
+
+
+    public static Response error(){
+        return Response.builder()
+                .status(2)
+                .message("Ошибка сохраниения в базу данных!!!")
                 .build();
     }
 }

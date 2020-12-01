@@ -3,7 +3,7 @@ package kg.megacom.shopservice.models.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -11,19 +11,21 @@ import java.util.Date;
 public class Goods {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "goods_id")
     private Long id;
     private String name;
-    private Date addDate;
-    private Date expirationDate;
+    private LocalDateTime addDate;
+    private LocalDateTime expirationDate;
     private int minAmount;
     private int maxAmount;
     private String qrCode;
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id")
     private Category category;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "provider_id")
     private Provider provider;
+    private boolean active=true;
+
 }
