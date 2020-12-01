@@ -9,6 +9,8 @@ import kg.megacom.shopservice.services.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GoodsServiceImpl implements GoodsService {
 
@@ -58,6 +60,14 @@ public class GoodsServiceImpl implements GoodsService {
         goodsRepo.save(goods);
         response=Response.success();
         response.setObject(GoodsMapper.INSTANCE.toGoodsDto(goods));
+        return response;
+    }
+
+    @Override
+    public Response getGoodsDto(boolean active) {
+        Response response=Response.success();
+        List<Goods> goodsList = goodsRepo.findAllByActive(active);
+        response.setObject(GoodsMapper.INSTANCE.toGoodsDtoList(goodsList));
         return response;
     }
 }

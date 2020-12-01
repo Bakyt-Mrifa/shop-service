@@ -5,10 +5,7 @@ import kg.megacom.shopservice.models.dto.GoodsDto;
 import kg.megacom.shopservice.models.responses.Response;
 import kg.megacom.shopservice.services.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/api/v0.1/goods/")
@@ -24,15 +21,20 @@ public class GoodsController {
         return goodsService.saveGoods(goodsDto);
     }
 
-    @PostMapping(value = "update")
+    @PutMapping(value = "update")
     public Response updateGoods (@RequestBody GoodsDto goodsDto){
         System.out.println("UPDATE - "+goodsDto.getMaxAmount() + " - max, "+ goodsDto.getMinAmount() + " - min");
         return goodsService.updateGoods(goodsDto);
     }
 
-    @PostMapping(value = "delete")
+    @DeleteMapping(value = "delete")
     public Response deleteGoods (@RequestBody GoodsDto goodsDto){
         System.out.println("DELETE - "+goodsDto.getMaxAmount() + " - max, "+ goodsDto.getMinAmount() + " - min");
         return goodsService.deleteGoods(goodsDto);
+    }
+
+    @GetMapping (value = "get")
+    public Response getGoods (@RequestParam boolean active){
+        return goodsService.getGoodsDto(active);
     }
 }

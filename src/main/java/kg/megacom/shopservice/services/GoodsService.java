@@ -8,4 +8,5 @@ public interface GoodsService {
     Response saveGoods (GoodsDto goodsDto);
     Response updateGoods (GoodsDto goodsDto);
     Response deleteGoods (GoodsDto goodsDto);
+    Response getGoodsDto (boolean active);
 }

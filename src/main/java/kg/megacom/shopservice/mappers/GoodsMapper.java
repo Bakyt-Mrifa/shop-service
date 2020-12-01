@@ -7,6 +7,8 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 @Mapper
 public interface GoodsMapper {
 
@@ -15,4 +17,7 @@ public interface GoodsMapper {
 @Mapping(target = "addDate", source = "goodsDto.addDate")
     Goods toGoods (GoodsDto goodsDto);
     GoodsDto toGoodsDto (Goods goods);
+
+    List<Goods> toGoodsList (List<GoodsDto> goodsDtoList);
+    List<GoodsDto> toGoodsDtoList (List<Goods> goodsDto);
 }
