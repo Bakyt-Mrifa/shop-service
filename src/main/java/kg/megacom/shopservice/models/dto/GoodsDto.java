@@ -16,5 +16,5 @@ public class GoodsDto {
     private String qrCode;
     private CategoryDto category;
     private ProviderDto provider;
-    private boolean active;
+    private boolean active=true;
 }

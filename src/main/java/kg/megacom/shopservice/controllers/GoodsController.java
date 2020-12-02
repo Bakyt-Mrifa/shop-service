@@ -33,8 +33,8 @@ public class GoodsController {
         return goodsService.deleteGoods(goodsDto);
     }
 
-    @GetMapping (value = "get")
+   /* @GetMapping (value = "get")
     public Response getGoods (@RequestParam boolean active){
         return goodsService.getGoodsDto(active);
-    }
+    }*/
 }

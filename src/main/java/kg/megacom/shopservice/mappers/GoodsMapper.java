@@ -18,6 +18,6 @@ public interface GoodsMapper {
     Goods toGoods (GoodsDto goodsDto);
     GoodsDto toGoodsDto (Goods goods);
 
-    List<Goods> toGoodsList (List<GoodsDto> goodsDtoList);
-    List<GoodsDto> toGoodsDtoList (List<Goods> goodsDto);
+   /* List<Goods> toGoodsList (List<GoodsDto> goodsDtoList);
+    List<GoodsDto> toGoodsDtoList (List<Goods> goodsDto);*/
 }
