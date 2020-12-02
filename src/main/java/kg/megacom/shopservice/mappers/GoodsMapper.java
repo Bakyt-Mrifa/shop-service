@@ -14,7 +14,7 @@ public interface GoodsMapper {
 
     GoodsMapper INSTANCE = Mappers.getMapper(GoodsMapper.class);
 
-@Mapping(target = "addDate", source = "goodsDto.addDate")
+    @Mapping(target = "addDate", source = "goodsDto.addDate")
     Goods toGoods (GoodsDto goodsDto);
     GoodsDto toGoodsDto (Goods goods);
 

@@ -1,12 +1,12 @@
 package kg.megacom.shopservice.services;
 
 import kg.megacom.shopservice.models.dto.GoodsDto;
-import kg.megacom.shopservice.models.responses.Response;
+import kg.megacom.shopservice.models.responses.Responses;
 
 public interface GoodsService {
 
-    Response saveGoods (GoodsDto goodsDto);
-    Response updateGoods (GoodsDto goodsDto);
-    Response deleteGoods (GoodsDto goodsDto);
-    Response getGoodsDto (boolean active);
+    Responses saveGoods (GoodsDto goodsDto);
+    Responses updateGoods (GoodsDto goodsDto);
+    Responses deleteGoods (GoodsDto goodsDto);
+    Responses getGoodsDto (boolean active);
 }
