@@ -63,11 +63,11 @@ public class GoodsServiceImpl implements GoodsService {
         return response;
     }
 
-   /* @Override
+    @Override
     public Response getGoodsDto(boolean active) {
         Response response=Response.success();
         List<Goods> goodsList = goodsRepo.findAllByActive(active);
         response.setObject(GoodsMapper.INSTANCE.toGoodsDtoList(goodsList));
         return response;
-    }*/
+    }
 }
