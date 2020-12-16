@@ -59,4 +59,20 @@ public class Responses {
                 .message("Список пуст")
                 .build();
     }
+
+    public static Responses operationSuccess(){
+        return Responses.builder()
+                .status(8)
+                .message("Операция проведена успешно")
+                .build();
+    }
+    public static Responses thankYou(){
+        return Responses.builder()
+                .status(9)
+                .message("Спасибо за покупку")
+                .build();
+    }
+
+
+
 }

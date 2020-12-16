@@ -20,10 +20,10 @@ public class Goods {
     private int minAmount;
     private int maxAmount;
     private String qrCode;
-    @ManyToOne (cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "provider_id")
     private Provider provider;
     private boolean active=true;

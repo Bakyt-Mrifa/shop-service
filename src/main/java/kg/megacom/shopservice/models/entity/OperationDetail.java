@@ -11,7 +11,7 @@ public class OperationDetail {
 
     @Id
     @GeneratedValue
-    @Column(name = "Operation_detail_id")
+    @Column(name = "operation_detail_id")
     private Long id;
     @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "goods_id")
@@ -19,6 +19,7 @@ public class OperationDetail {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cost_id")
     private Cost cost;
+    private double totalCost;
     private int amount;
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "operation_id")

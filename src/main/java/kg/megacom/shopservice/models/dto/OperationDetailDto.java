@@ -7,6 +7,7 @@ public class OperationDetailDto {
     private Long id;
     private GoodsDto goods;
     private CostDto cost;
+    private double totalCost;
     private int amount;
-    private OperationDto operation;
+//    private OperationDto operation;
 }
